@@ -4,11 +4,14 @@
     <div class="flex flex-wrap my-5">
       <Product v-for="(item, i) in products" :key="i" :product="item" />
     </div>
+    {{ pagination }}
     <div class="text-center">
-      <Button value="1" @click.native="fetchData(1)" />
-      <Button value="2" @click.native="fetchData(2)" />
-      <Button value="3" @click.native="fetchData(3)" />
-      <Button value=">>" @click.native="fetchData()" />
+      <Button
+        v-for="(val, i) in pagination"
+        :key="i"
+        :value="i + 1"
+        @click.native="fetchData(i + 1)"
+      />
     </div>
   </div>
 </template>
@@ -19,6 +22,9 @@ export default {
     const products = await $axios.$get(`/Edgewood-API/public/api/products`)
     store.commit('addProduct', products.data)
     store.commit('addCategory', products.data)
+    return {
+      pagination: products.last_page,
+    }
   },
   computed: {
     products() {
