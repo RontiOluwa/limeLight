@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .transparent_bg {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .border {
+        border: 1px solid black;
+    }
+}
