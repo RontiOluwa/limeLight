@@ -11,6 +11,7 @@
         :value="i + 1"
         @click.native="fetchData(i + 1)"
       />
+      <Button :value="0" @click.native="fetchData()" />
     </div>
   </div>
 </template>
