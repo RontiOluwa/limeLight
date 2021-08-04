@@ -4,7 +4,6 @@
     <div class="flex flex-wrap my-5">
       <Product v-for="(item, i) in products" :key="i" :product="item" />
     </div>
-    {{ pagination }}
     <div class="text-center">
       <Button
         v-for="(val, i) in pagination"
